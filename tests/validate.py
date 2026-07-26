@@ -1,77 +1,86 @@
 #!/usr/bin/env python3
-"""Small dependency-free validation suite for the static site."""
+"""Dependency-free preservation checks for the Fofó Pizza snapshot."""
 from html.parser import HTMLParser
 from pathlib import Path
-import json
+import hashlib
 import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-HTML = (ROOT / "index.html").read_text(encoding="utf-8")
+HTML = ROOT / "index.html"
+EXPECTED_IMAGES = {
+    "71452652.jpg": "bb34c342328f4a33b582804a1001ad2c1303f87a05a1b8e63005a16579b326ae",
+    "71452656.jpg": "392d880788432743f75068246753c5c4646f7d4ee7d308364e82c184a54a007c",
+    "71452657.jpg": "ae2c64cb4fe1f32cb6951616995d75a54981f6c55e6b2562ed7b8228d39d5190",
+    "71452659.jpg": "60f4b187be6047330f71188957bdd179d115c28f6c8fc0206de2bb6f2a24699d",
+    "71452661.jpg": "3bed497e940ce79f338ffc9151c84ab9828a418786907db2e271ca17616e29ec",
+    "71452663.jpg": "2029298528c4053d95275cb2b651a863f294dce00b5f80f4dc4a3383f4c3f6dc",
+    "71452667.jpg": "26707067d2c9632d71ed475d06d977d79505ec1be78d76a4dcebc7fa1b25e9b7",
+}
 
-class Validator(HTMLParser):
+class Audit(HTMLParser):
     def __init__(self):
         super().__init__()
         self.ids = set()
-        self.links = []
-        self.h1 = 0
         self.images = []
-        self.json_ld = []
-        self._json_script = False
-        self._json_buffer = []
-
+        self.h1 = 0
+        self.menu_items = 0
+        self.local_refs = []
     def handle_starttag(self, tag, attrs):
-        attrs = dict(attrs)
-        if "id" in attrs:
-            self.ids.add(attrs["id"])
-        if tag == "a" and "href" in attrs:
-            self.links.append(attrs["href"])
+        data = dict(attrs)
+        if "id" in data:
+            self.ids.add(data["id"])
+        classes = set(data.get("class", "").split())
         if tag == "h1":
             self.h1 += 1
-        if tag == "img":
-            self.images.append(attrs.get("src", ""))
-        if tag == "script" and attrs.get("type") == "application/ld+json":
-            self._json_script = True
-            self._json_buffer = []
+        if tag == "article" and "menu-item" in classes:
+            self.menu_items += 1
+        if tag == "img" and data.get("src"):
+            self.images.append(data["src"])
+            self.local_refs.append(data["src"])
+        if tag in {"script", "link"}:
+            ref = data.get("src") or data.get("href")
+            if ref and not ref.startswith(("http://", "https://", "data:", "#")):
+                self.local_refs.append(ref)
 
-    def handle_data(self, data):
-        if self._json_script:
-            self._json_buffer.append(data)
+def fail(message):
+    print(f"FAIL: {message}", file=sys.stderr)
+    raise SystemExit(1)
 
-    def handle_endtag(self, tag):
-        if tag == "script" and self._json_script:
-            self.json_ld.append(json.loads("".join(self._json_buffer)))
-            self._json_script = False
+text = HTML.read_text(encoding="utf-8")
+audit = Audit()
+audit.feed(text)
 
-v = Validator()
-v.feed(HTML)
-errors = []
-if v.h1 != 1:
-    errors.append(f"Expected one h1, found {v.h1}")
-for href in v.links:
-    if href.startswith("#") and href[1:] not in v.ids:
-        errors.append(f"Broken internal link: {href}")
-if v.images:
-    errors.append(f"Third-party/raster images are not allowed: {v.images}")
-if not v.json_ld or v.json_ld[0].get("@type") != "Restaurant":
-    errors.append("Valid Restaurant JSON-LD not found")
+if audit.h1 != 1:
+    fail(f"expected one h1, found {audit.h1}")
+if audit.menu_items != 20:
+    fail(f"expected 20 original menu items, found {audit.menu_items}")
+required_ids = {"inicio", "contenido", "historia", "carta", "galeria", "visitanos"}
+if missing := required_ids - audit.ids:
+    fail(f"missing original anchors: {sorted(missing)}")
+if len(audit.images) != 7:
+    fail(f"expected seven image references, found {len(audit.images)}")
+if set(Path(p).name for p in audit.images) != set(EXPECTED_IMAGES):
+    fail("image references differ from the original set")
+for ref in audit.local_refs:
+    if not (ROOT / ref).exists():
+        fail(f"missing local reference: {ref}")
+for name, expected in EXPECTED_IMAGES.items():
+    actual = hashlib.sha256((ROOT / "assets" / name).read_bytes()).hexdigest()
+    if actual != expected:
+        fail(f"asset checksum changed: {name}")
+for phrase in [
+    "Pizza con<br><em>carácter.</em>",
+    "Pocas reglas.<br>Mucho oficio.",
+    "La Mortadella.",
+    "Sin filtros.<br>Recién hechas.",
+    "Tu mesa, tu caja<br>o tu sofá.",
+]:
+    if phrase not in text:
+        fail(f"missing original phrase: {phrase}")
+if "new IntersectionObserver" not in text or "data-filter" not in text:
+    fail("original interactions are missing")
+if re.search(r"(gho_|github_pat_|BEGIN (RSA|OPENSSH) PRIVATE KEY|AKIA[0-9A-Z]{16})", text):
+    fail("possible secret in published HTML")
 
-items = re.findall(r"\['(?:clasicas|especialidades|blancas|postres|bebidas|extras)'\s*,", HTML)
-if len(items) != 29:
-    errors.append(f"Expected 29 menu products, found {len(items)}")
-
-for forbidden in ("672 98 52 82", "Reservar", "WhatsApp", "Masa artesana", "terraza ·", "assets/"):
-    if forbidden.lower() in HTML.lower():
-        errors.append(f"Forbidden or unverified content found: {forbidden}")
-
-required = ("+34931451225", "Uber Eats", "Proyecto web conceptual no oficial", "contaminación cruzada")
-for value in required:
-    if value not in HTML:
-        errors.append(f"Required content missing: {value}")
-
-if errors:
-    print("VALIDATION FAILED")
-    for error in errors:
-        print(f"- {error}")
-    sys.exit(1)
-print("VALIDATION OK: HTML, links, JSON-LD, 29 products and content safeguards")
+print("VALIDATION OK: original layout, text, anchors, interactions and 7 photo checksums preserved")

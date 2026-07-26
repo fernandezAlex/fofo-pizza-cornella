@@ -1,0 +1,24 @@
+# Nota de preservación
+
+## Versión visual canónica
+
+La versión solicitada para publicación es la que existía originalmente en:
+
+`https://fofo-pizza.31-97-153-148.nip.io/#inicio`
+
+Está compuesta por:
+
+- `index.html`
+- siete fotografías JPEG dentro de `assets/`
+
+## Decisión final
+
+Tras una publicación intermedia que modificó sustancialmente el diseño, Alex pidió restaurar la primera versión y subirla sin cambios, manteniendo diseño, fotografías, textos, secciones, anclas y comportamiento.
+
+## Contexto posterior
+
+La investigación ampliada contiene advertencias sobre fuentes, horarios, teléfonos y licencias de fotografías. Se conserva íntegra para que los agentes conozcan los riesgos y la cronología. No debe usarse para modificar automáticamente la versión visual, porque la instrucción final fue preservar el estado original.
+
+## Seguridad
+
+No se incluyen claves SSH, tokens de GitHub, contraseñas, archivos `.env`, configuración privada del VPS ni la base de datos completa de Kanban. Solo se exporta el contexto del proyecto.
