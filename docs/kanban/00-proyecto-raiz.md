@@ -14,7 +14,7 @@ Task t_83cfbe87: investigar el negocio FOFO PIZZERIA CORNELLA y crear una pagina
 Result:
 Proyecto publicado en repositorio público y GitHub Pages.
 
-Comments (8):
+Comments (9):
   [2026-07-26 23:30] default: ## Entrega lista para revisión
 
 - Web: `/opt/data/kanban/workspaces/t_83cfbe87/index.html`
@@ -74,9 +74,9 @@ La URL es una previsualización; antes de usarla como web oficial siguen pendien
 - Se retiraron todas las fotografías sin licencia verificable y las afirmaciones no confirmadas.
 - Verificación: HTTP 200, 0 errores de consola, 29 productos, filtros funcionales, 1 H1, 0 imágenes de terceros y 0 overflow horizontal.
   [2026-07-27 00:34] default: CORRECCIÓN FINAL SOLICITADA POR ALEX: se restauró y publicó la versión original del sitio sin rediseños. Se mantienen diseño, textos, navegación, ancla #inicio, 20 elementos de carta y las 7 fotografías originales. El repositorio incluye además investigación inicial y ampliada, auditoría, especificaciones, exportaciones del Kanban, AGENTS.md, manifiesto SHA-256 y ZIP de preservación. GitHub Pages: https://fernandezalex.github.io/fofo-pizza-cornella/ · Repositorio: https://github.com/fernandezAlex/fofo-pizza-cornella · Commit de restauración: 6d1ac1f. La petición de conservación exacta prevalece sobre la publicación intermedia rediseñada.
+  [2026-07-27 17:38] default: EVOLUCIÓN DE MARCA AUTORIZADA POR ALEX (27/07/2026): se incorporó el logo corporativo facilitado por el usuario. La fuente 234×282 tenía fondo oscuro opaco; se extrajo el primer plano y se generó assets/logo-fofo.png con transparencia alfa real a 378×562. Se integra en cabecera, favicon y pie. La paleta conserva los rojos #A52D25/#702019 y añade verdes #4FAA36, #74EC4A y #245C32 en titulares, filtros, etiquetas, bordes y bloques oscuros. Las 7 fotografías, 20 productos, textos, anclas y comportamiento original permanecen. La búsqueda pública no encontró una versión verificable de mayor resolución con transparencia. Documentado en docs/brand/README.md.
 
-Events (54):
-  [2026-07-26 23:35] unblocked
+Events (55):
   [2026-07-26 23:35] [run 5] claimed {'lock': 'ac0cb58b64bc:4952', 'expires': 1785102648, 'run_id': 5}
   [2026-07-26 23:35] [run 5] spawned {'pid': 12109}
   [2026-07-26 23:35] [run 5] heartbeat
@@ -96,6 +96,7 @@ Events (54):
   [2026-07-27 00:19] promoted
   [2026-07-27 00:19] [run 15] completed {'result_len': 57, 'summary': 'Entrega final: https://fernandezalex.github.io/fofo-pizza-cornella/ y código en https://github.com/fernandezAlex/fofo-pizza-cornella.'}
   [2026-07-27 00:34] commented {'author': 'default', 'len': 645}
+  [2026-07-27 17:38] commented {'author': 'default', 'len': 659}
 
 Runs (3):
   #3   blocked      @default  1495s  2026-07-26 23:06

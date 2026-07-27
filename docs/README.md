@@ -8,6 +8,11 @@ Este directorio organiza la información producida durante el trabajo en Hermes 
 - `INVESTIGACION-AMPLIADA.md`: documento adjunto a Kanban con investigación y verificación posterior más extensa.
 - `FUENTES-Y-DECISIONES-POSTERIORES.md`: fuentes y decisiones editoriales preparadas durante una revisión posterior.
 
+## `brand/`
+
+- `README.md`: preparación del logo transparente y paleta corporativa rojo/verde.
+- `logo-source-user.png`: archivo de identidad visual aportado por Alex.
+
 ## `kanban/`
 
 Exportaciones textuales de las tareas originales, conservando cuerpos, comentarios, estados, dependencias y resultados:

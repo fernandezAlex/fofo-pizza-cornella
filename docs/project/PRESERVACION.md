@@ -15,6 +15,10 @@ Está compuesta por:
 
 Tras una publicación intermedia que modificó sustancialmente el diseño, Alex pidió restaurar la primera versión y subirla sin cambios, manteniendo diseño, fotografías, textos, secciones, anclas y comportamiento.
 
+## Evolución autorizada de marca
+
+El 27/07/2026 Alex pidió incorporar el logo corporativo que facilitó, convertirlo a PNG transparente y ampliar la paleta existente con el verde del logo, manteniendo el rojo original. La cabecera, el favicon, el pie y varios acentos de interfaz se actualizaron sin eliminar contenido ni fotografías.
+
 ## Contexto posterior
 
 La investigación ampliada contiene advertencias sobre fuentes, horarios, teléfonos y licencias de fotografías. Se conserva íntegra para que los agentes conozcan los riesgos y la cronología. No debe usarse para modificar automáticamente la versión visual, porque la instrucción final fue preservar el estado original.

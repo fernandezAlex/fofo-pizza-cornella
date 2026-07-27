@@ -17,6 +17,7 @@ EXPECTED_IMAGES = {
     "71452663.jpg": "2029298528c4053d95275cb2b651a863f294dce00b5f80f4dc4a3383f4c3f6dc",
     "71452667.jpg": "26707067d2c9632d71ed475d06d977d79505ec1be78d76a4dcebc7fa1b25e9b7",
 }
+EXPECTED_LOGO = "11b63fe399c971cf1a4ed0acf5647655c8670de307dcb9c1076398ed84afef76"
 
 class Audit(HTMLParser):
     def __init__(self):
@@ -58,10 +59,13 @@ if audit.menu_items != 20:
 required_ids = {"inicio", "contenido", "historia", "carta", "galeria", "visitanos"}
 if missing := required_ids - audit.ids:
     fail(f"missing original anchors: {sorted(missing)}")
-if len(audit.images) != 7:
-    fail(f"expected seven image references, found {len(audit.images)}")
-if set(Path(p).name for p in audit.images) != set(EXPECTED_IMAGES):
-    fail("image references differ from the original set")
+if len(audit.images) != 9:
+    fail(f"expected seven photos and two logo placements, found {len(audit.images)} image references")
+names = [Path(p).name for p in audit.images]
+if set(names) != set(EXPECTED_IMAGES) | {"logo-fofo.png"}:
+    fail("image references differ from the expected photos and official logo")
+if names.count("logo-fofo.png") != 2:
+    fail("official logo must appear in header and footer")
 for ref in audit.local_refs:
     if not (ROOT / ref).exists():
         fail(f"missing local reference: {ref}")
@@ -69,6 +73,9 @@ for name, expected in EXPECTED_IMAGES.items():
     actual = hashlib.sha256((ROOT / "assets" / name).read_bytes()).hexdigest()
     if actual != expected:
         fail(f"asset checksum changed: {name}")
+logo_hash = hashlib.sha256((ROOT / "assets" / "logo-fofo.png").read_bytes()).hexdigest()
+if logo_hash != EXPECTED_LOGO:
+    fail("transparent corporate logo checksum changed")
 for phrase in [
     "Pizza con<br><em>carácter.</em>",
     "Pocas reglas.<br>Mucho oficio.",
@@ -80,7 +87,10 @@ for phrase in [
         fail(f"missing original phrase: {phrase}")
 if "new IntersectionObserver" not in text or "data-filter" not in text:
     fail("original interactions are missing")
+for token in ["--green:#4faa36", "--green-bright:#74ec4a", "--green-dark:#245c32"]:
+    if token not in text:
+        fail(f"missing corporate palette token: {token}")
 if re.search(r"(gho_|github_pat_|BEGIN (RSA|OPENSSH) PRIVATE KEY|AKIA[0-9A-Z]{16})", text):
     fail("possible secret in published HTML")
 
-print("VALIDATION OK: original layout, text, anchors, interactions and 7 photo checksums preserved")
+print("VALIDATION OK: original content and 7 photos preserved; transparent logo and corporate green palette present")

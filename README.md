@@ -14,6 +14,8 @@ La raíz del repositorio es directamente publicable en GitHub Pages:
 
 - `index.html`: HTML, CSS y JavaScript de la web original.
 - `assets/`: las siete fotografías utilizadas por el diseño original.
+- `assets/logo-fofo.png`: logo corporativo con transparencia real, incorporado a la cabecera, el pie y el favicon.
+- `docs/brand/`: fuente del logo, proceso de extracción y paleta corporativa.
 - `docs/research/`: investigación inicial, investigación ampliada y fuentes/decisiones posteriores.
 - `docs/kanban/`: exportación de las seis tareas del proyecto en el Kanban de Hermes, con cuerpos, comentarios, dependencias y resultados.
 - `docs/project/`: documentación de preservación y README original.
@@ -41,7 +43,7 @@ python3 tests/validate.py
 
 ## Preservación
 
-La versión visual de referencia está formada por `index.html` y `assets/`. Cualquier modificación debe compararse con la web original y contar con una petición explícita del propietario del repositorio.
+La versión visual de referencia está formada por `index.html` y `assets/`. El 27/07/2026 se incorporó, por petición expresa de Alex, el logo corporativo y una ampliación de la paleta con verdes extraídos de la marca, manteniendo el rojo y todo el contenido anterior. Cualquier modificación posterior debe compararse con la web publicada y contar con una petición explícita del propietario del repositorio.
 
 ## Nota
 
