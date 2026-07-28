@@ -20,6 +20,7 @@ La raíz del repositorio es directamente publicable en GitHub Pages:
 - `docs/kanban/`: exportación de las seis tareas del proyecto en el Kanban de Hermes, con cuerpos, comentarios, dependencias y resultados.
 - `docs/project/`: documentación de preservación y README original.
 - `docs/project/CARTA-IMAGENES.md`: funcionamiento de las miniaturas, el modal y la futura asignación de una foto propia a cada pizza.
+- `docs/project/CARTA-CATEGORIAS.md`: clasificación provisional utilizada por los filtros de la carta.
 - `artifacts/`: copia empaquetada de la web.
 - `AGENTS.md`: reglas y contexto para Hermes, Codex, Claude Code y otros agentes.
 - `tests/validate.py`: validación de estructura e integridad de las fotografías.
@@ -39,6 +40,8 @@ Después abre `http://localhost:8080/#inicio`.
 ## Imágenes de la carta
 
 Cada pizza incorpora una miniatura circular interactiva. Al pulsarla se abre una imagen circular grande con una animación de giro que termina en estado estático. De forma provisional, las 20 entradas reutilizan la misma fotografía; se sustituirán por sus imágenes correspondientes cuando estén disponibles.
+
+Los filtros usan una categorización editorial provisional: 8 clásicas, 12 de la casa, 5 vegetarianas y 4 picantes. Algunas pizzas pertenecen a varias categorías.
 
 ## Validación
 

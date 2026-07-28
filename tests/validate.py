@@ -5,6 +5,7 @@ from pathlib import Path
 import hashlib
 import re
 import sys
+from collections import Counter
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "index.html"
@@ -97,10 +98,17 @@ for marker in [
     'const PIZZA_PLACEHOLDER="assets/71452652.jpg"',
     "pizzaModal.showModal()",
     "document.querySelectorAll('.menu-item').forEach((item,index)",
+    '.menu-item[hidden]{display:none}',
 ]:
     if marker not in text:
         fail(f"missing pizza thumbnail/modal behavior: {marker}")
+category_counts = Counter()
+for tags in re.findall(r'<article class="menu-item" data-tags="([^"]+)">', text):
+    category_counts.update(tags.split())
+expected_categories = {"clasica": 8, "casa": 12, "vegetariana": 5, "picante": 4}
+if {key: category_counts[key] for key in expected_categories} != expected_categories:
+    fail(f"unexpected menu categorization: {dict(category_counts)}")
 if re.search(r"(gho_|github_pat_|BEGIN (RSA|OPENSSH) PRIVATE KEY|AKIA[0-9A-Z]{16})", text):
     fail("possible secret in published HTML")
 
-print("VALIDATION OK: original content and 7 photos preserved; logo, brand palette, 20 thumbnails and circular pizza modal present")
+print("VALIDATION OK: preserved content, 20 thumbnails, circular modal and filter categorization 20/8/12/5/4 present")

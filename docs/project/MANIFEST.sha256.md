@@ -1,6 +1,6 @@
 # SHA-256 preservation manifest
 
-2ac51a78c45ecdaaf259da7a15cf901573bd0e22970f0f138226864e3b2fe6da  index.html
+ec2dd37e40e9b07b9748ea38171086fd0ccb3ec292fe06fa29446525e0b52a09  index.html
 bb34c342328f4a33b582804a1001ad2c1303f87a05a1b8e63005a16579b326ae  assets/71452652.jpg
 392d880788432743f75068246753c5c4646f7d4ee7d308364e82c184a54a007c  assets/71452656.jpg
 ae2c64cb4fe1f32cb6951616995d75a54981f6c55e6b2562ed7b8228d39d5190  assets/71452657.jpg
@@ -9,6 +9,6 @@ ae2c64cb4fe1f32cb6951616995d75a54981f6c55e6b2562ed7b8228d39d5190  assets/7145265
 2029298528c4053d95275cb2b651a863f294dce00b5f80f4dc4a3383f4c3f6dc  assets/71452663.jpg
 26707067d2c9632d71ed475d06d977d79505ec1be78d76a4dcebc7fa1b25e9b7  assets/71452667.jpg
 11b63fe399c971cf1a4ed0acf5647655c8670de307dcb9c1076398ed84afef76  assets/logo-fofo.png
-e82bf058f12d56699da7c52c473419c00bf3503685f8624ad8ab03530417dbcd  artifacts/fofo-pizza-web-original.zip
+5e8ec20ad92b8d94a4f207f49786110be4792306dc2615d2e48d7f68d513b314  artifacts/fofo-pizza-web-original.zip
 
-Updated after adding provisional menu thumbnails and the circular pizza modal.
+Updated after fixing menu filters and documenting the provisional categorization.

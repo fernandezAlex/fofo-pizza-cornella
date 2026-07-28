@@ -21,6 +21,7 @@ Este repositorio conserva la versión original del proyecto web conceptual **Fof
 - `docs/kanban/`: exportación legible de las tareas, comentarios, decisiones y resultados del Kanban de Hermes.
 - `docs/project/`: documentación original y notas de conservación.
 - `docs/project/CARTA-IMAGENES.md`: estado provisional y procedimiento futuro para asignar una imagen distinta a cada pizza.
+- `docs/project/CARTA-CATEGORIAS.md`: taxonomía provisional y recuentos esperados de los filtros.
 - `artifacts/`: paquete ZIP de preservación del sitio.
 - `tests/validate.py`: comprobaciones de integridad y estructura.
 
@@ -38,6 +39,8 @@ La petición final de conservación prevalece para la versión publicada. Las ad
 El 27/07/2026 Alex autorizó una modificación concreta: añadir el logo corporativo y reforzar el verde de marca sin eliminar el rojo existente. Esta integración ya forma parte de la referencia visual canónica.
 
 La carta incluye 20 miniaturas circulares que usan temporalmente una única fotografía. Deben conservarse el hover, el modal circular, el giro de apertura, el estado final estático, el cierre accesible y el retorno del foco. Las imágenes definitivas se asignarán por pizza cuando Alex las facilite.
+
+Los filtros dependen de `data-tags` y de `.menu-item[hidden]{display:none}`. Mantener los recuentos provisionales: todas 20, clásicas 8, de la casa 12, vegetarianas 5 y picantes 4.
 
 ## Publicación
 

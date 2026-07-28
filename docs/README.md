@@ -31,6 +31,7 @@ La exportación permite entender decisiones contradictorias entre fases. La peti
 - `README-ORIGINAL.md`: instrucciones de la entrega inicial.
 - `PRESERVACION.md`: relación entre la web canónica y la documentación.
 - `CARTA-IMAGENES.md`: miniaturas provisionales, modal circular y futura asignación de fotos por pizza.
+- `CARTA-CATEGORIAS.md`: clasificación provisional y funcionamiento de los filtros.
 
 ## Criterio para agentes
 
