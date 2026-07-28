@@ -14,7 +14,7 @@ Task t_83cfbe87: investigar el negocio FOFO PIZZERIA CORNELLA y crear una pagina
 Result:
 Proyecto publicado en repositorio público y GitHub Pages.
 
-Comments (10):
+Comments (11):
   [2026-07-26 23:30] default: ## Entrega lista para revisión
 
 - Web: `/opt/data/kanban/workspaces/t_83cfbe87/index.html`
@@ -76,9 +76,9 @@ La URL es una previsualización; antes de usarla como web oficial siguen pendien
   [2026-07-27 00:34] default: CORRECCIÓN FINAL SOLICITADA POR ALEX: se restauró y publicó la versión original del sitio sin rediseños. Se mantienen diseño, textos, navegación, ancla #inicio, 20 elementos de carta y las 7 fotografías originales. El repositorio incluye además investigación inicial y ampliada, auditoría, especificaciones, exportaciones del Kanban, AGENTS.md, manifiesto SHA-256 y ZIP de preservación. GitHub Pages: https://fernandezalex.github.io/fofo-pizza-cornella/ · Repositorio: https://github.com/fernandezAlex/fofo-pizza-cornella · Commit de restauración: 6d1ac1f. La petición de conservación exacta prevalece sobre la publicación intermedia rediseñada.
   [2026-07-27 17:38] default: EVOLUCIÓN DE MARCA AUTORIZADA POR ALEX (27/07/2026): se incorporó el logo corporativo facilitado por el usuario. La fuente 234×282 tenía fondo oscuro opaco; se extrajo el primer plano y se generó assets/logo-fofo.png con transparencia alfa real a 378×562. Se integra en cabecera, favicon y pie. La paleta conserva los rojos #A52D25/#702019 y añade verdes #4FAA36, #74EC4A y #245C32 en titulares, filtros, etiquetas, bordes y bloques oscuros. Las 7 fotografías, 20 productos, textos, anclas y comportamiento original permanecen. La búsqueda pública no encontró una versión verificable de mayor resolución con transparencia. Documentado en docs/brand/README.md.
   [2026-07-28 11:15] default: AJUSTE DE PALETA SOLICITADO POR ALEX: reducir el negro porque no forma parte de la identidad del logo. Se restauró el footer a su composición anterior sin el logo; el logo queda en cabecera y favicon. Los titulares claros alternan verde corporativo y rojo, los nombres de las pizzas pasan a verde con precios rojos, y la sección Visítanos cambia del negro a fondo verde con tarjeta de horarios roja. Se conserva el footer oscuro original como excepción solicitada.
+  [2026-07-28 11:26] default: MEJORA INTERACTIVA AUTORIZADA POR ALEX: las 20 pizzas de la carta incorporan una miniatura circular antes del título e ingredientes. Temporalmente todas reutilizan assets/71452652.jpg hasta disponer de una foto propia por receta. Hover/foco amplía y gira suavemente la miniatura. El clic abre un dialog modal circular grande con aro rojo/verde; la pizza gira y escala durante 720 ms y después queda estática. Incluye nombre, texto alternativo dinámico, cierre por botón/Escape/clic exterior, retorno del foco y prefers-reduced-motion. Procedimiento futuro documentado en docs/project/CARTA-IMAGENES.md.
 
-Events (56):
-  [2026-07-26 23:35] [run 5] spawned {'pid': 12109}
+Events (57):
   [2026-07-26 23:35] [run 5] heartbeat
   [2026-07-26 23:36] [run 5] heartbeat
   [2026-07-26 23:38] [run 5] heartbeat
@@ -98,6 +98,7 @@ Events (56):
   [2026-07-27 00:34] commented {'author': 'default', 'len': 645}
   [2026-07-27 17:38] commented {'author': 'default', 'len': 659}
   [2026-07-28 11:15] commented {'author': 'default', 'len': 464}
+  [2026-07-28 11:26] commented {'author': 'default', 'len': 602}
 
 Runs (3):
   #3   blocked      @default  1495s  2026-07-26 23:06

@@ -90,7 +90,17 @@ if "new IntersectionObserver" not in text or "data-filter" not in text:
 for token in ["--green:#4faa36", "--green-bright:#74ec4a", "--green-dark:#245c32"]:
     if token not in text:
         fail(f"missing corporate palette token: {token}")
+for marker in [
+    'id="pizza-modal"',
+    'class="pizza-modal-image"',
+    '@keyframes pizza-open',
+    'const PIZZA_PLACEHOLDER="assets/71452652.jpg"',
+    "pizzaModal.showModal()",
+    "document.querySelectorAll('.menu-item').forEach((item,index)",
+]:
+    if marker not in text:
+        fail(f"missing pizza thumbnail/modal behavior: {marker}")
 if re.search(r"(gho_|github_pat_|BEGIN (RSA|OPENSSH) PRIVATE KEY|AKIA[0-9A-Z]{16})", text):
     fail("possible secret in published HTML")
 
-print("VALIDATION OK: original content and 7 photos preserved; transparent logo and corporate green palette present")
+print("VALIDATION OK: original content and 7 photos preserved; logo, brand palette, 20 thumbnails and circular pizza modal present")

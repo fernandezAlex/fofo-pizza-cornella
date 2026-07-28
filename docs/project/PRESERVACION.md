@@ -19,6 +19,8 @@ Tras una publicación intermedia que modificó sustancialmente el diseño, Alex 
 
 El 27/07/2026 Alex pidió incorporar el logo corporativo que facilitó, convertirlo a PNG transparente y ampliar la paleta existente con el verde del logo, manteniendo el rojo original. El logo se integró en la cabecera y el favicon; el pie se conserva con su composición anterior. Los titulares y la sección de visita priorizan rojo y verde frente al negro, sin eliminar contenido ni fotografías.
 
+Posteriormente se autorizó añadir a las 20 pizzas una miniatura circular y un modal circular con giro de apertura. Hasta disponer de fotografías específicas, todas reutilizan provisionalmente `assets/71452652.jpg`; no debe interpretarse como la imagen real de cada receta.
+
 ## Contexto posterior
 
 La investigación ampliada contiene advertencias sobre fuentes, horarios, teléfonos y licencias de fotografías. Se conserva íntegra para que los agentes conozcan los riesgos y la cronología. No debe usarse para modificar automáticamente la versión visual, porque la instrucción final fue preservar el estado original.
