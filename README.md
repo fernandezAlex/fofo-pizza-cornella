@@ -14,7 +14,7 @@ La raíz del repositorio es directamente publicable en GitHub Pages:
 
 - `index.html`: HTML, CSS y JavaScript de la web original.
 - `assets/`: las siete fotografías utilizadas por el diseño original.
-- `assets/logo-fofo.png`: logo corporativo con transparencia real, incorporado a la cabecera, el pie y el favicon.
+- `assets/logo-fofo.png`: logo corporativo con transparencia real, incorporado a la cabecera y el favicon.
 - `docs/brand/`: fuente del logo, proceso de extracción y paleta corporativa.
 - `docs/research/`: investigación inicial, investigación ampliada y fuentes/decisiones posteriores.
 - `docs/kanban/`: exportación de las seis tareas del proyecto en el Kanban de Hermes, con cuerpos, comentarios, dependencias y resultados.

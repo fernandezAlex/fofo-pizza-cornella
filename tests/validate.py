@@ -59,13 +59,13 @@ if audit.menu_items != 20:
 required_ids = {"inicio", "contenido", "historia", "carta", "galeria", "visitanos"}
 if missing := required_ids - audit.ids:
     fail(f"missing original anchors: {sorted(missing)}")
-if len(audit.images) != 9:
-    fail(f"expected seven photos and two logo placements, found {len(audit.images)} image references")
+if len(audit.images) != 8:
+    fail(f"expected seven photos and one logo placement, found {len(audit.images)} image references")
 names = [Path(p).name for p in audit.images]
 if set(names) != set(EXPECTED_IMAGES) | {"logo-fofo.png"}:
     fail("image references differ from the expected photos and official logo")
-if names.count("logo-fofo.png") != 2:
-    fail("official logo must appear in header and footer")
+if names.count("logo-fofo.png") != 1:
+    fail("official logo must appear once in the header")
 for ref in audit.local_refs:
     if not (ROOT / ref).exists():
         fail(f"missing local reference: {ref}")

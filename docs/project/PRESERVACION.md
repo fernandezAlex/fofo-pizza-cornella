@@ -17,7 +17,7 @@ Tras una publicación intermedia que modificó sustancialmente el diseño, Alex 
 
 ## Evolución autorizada de marca
 
-El 27/07/2026 Alex pidió incorporar el logo corporativo que facilitó, convertirlo a PNG transparente y ampliar la paleta existente con el verde del logo, manteniendo el rojo original. La cabecera, el favicon, el pie y varios acentos de interfaz se actualizaron sin eliminar contenido ni fotografías.
+El 27/07/2026 Alex pidió incorporar el logo corporativo que facilitó, convertirlo a PNG transparente y ampliar la paleta existente con el verde del logo, manteniendo el rojo original. El logo se integró en la cabecera y el favicon; el pie se conserva con su composición anterior. Los titulares y la sección de visita priorizan rojo y verde frente al negro, sin eliminar contenido ni fotografías.
 
 ## Contexto posterior
 
