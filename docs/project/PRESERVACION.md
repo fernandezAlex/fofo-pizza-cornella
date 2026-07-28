@@ -21,6 +21,8 @@ El 27/07/2026 Alex pidió incorporar el logo corporativo que facilitó, converti
 
 Posteriormente se autorizó añadir a las 20 pizzas una miniatura circular y un modal circular con giro de apertura. Hasta disponer de fotografías específicas, todas reutilizan provisionalmente `assets/71452652.jpg`; no debe interpretarse como la imagen real de cada receta.
 
+El 28/07/2026 Alex autorizó una evolución editorial adicional: presentar Fofó como pizzería napolitana de horno de piedra, comunicar que el cocinero es napolitano e integrar en la propia página las valoraciones reales cargadas desde Google Maps. Esta autorización modifica únicamente el copy relacionado y añade la sección `#valoraciones`; el resto del diseño y los recursos continúan siendo canónicos.
+
 ## Contexto posterior
 
 La investigación ampliada contiene advertencias sobre fuentes, horarios, teléfonos y licencias de fotografías. Se conserva íntegra para que los agentes conozcan los riesgos y la cronología. No debe usarse para modificar automáticamente la versión visual, porque la instrucción final fue preservar el estado original.

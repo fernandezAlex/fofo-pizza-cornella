@@ -57,9 +57,9 @@ if audit.h1 != 1:
     fail(f"expected one h1, found {audit.h1}")
 if audit.menu_items != 20:
     fail(f"expected 20 original menu items, found {audit.menu_items}")
-required_ids = {"inicio", "contenido", "historia", "carta", "galeria", "visitanos"}
+required_ids = {"inicio", "contenido", "historia", "carta", "galeria", "valoraciones", "visitanos"}
 if missing := required_ids - audit.ids:
-    fail(f"missing original anchors: {sorted(missing)}")
+    fail(f"missing required anchors: {sorted(missing)}")
 if len(audit.images) != 8:
     fail(f"expected seven photos and one logo placement, found {len(audit.images)} image references")
 names = [Path(p).name for p in audit.images]
@@ -78,14 +78,26 @@ logo_hash = hashlib.sha256((ROOT / "assets" / "logo-fofo.png").read_bytes()).hex
 if logo_hash != EXPECTED_LOGO:
     fail("transparent corporate logo checksum changed")
 for phrase in [
-    "Pizza con<br><em>carácter.</em>",
-    "Pocas reglas.<br>Mucho oficio.",
+    "Nápoles,<br><em>al horno de piedra.</em>",
+    "Pocas reglas.<br>Mucho oficio napolitano.",
     "La Mortadella.",
     "Sin filtros.<br>Recién hechas.",
     "Tu mesa, tu caja<br>o tu sofá.",
 ]:
     if phrase not in text:
-        fail(f"missing original phrase: {phrase}")
+        fail(f"missing required phrase: {phrase}")
+for marker in [
+    "pizzaiolo napolitano",
+    "horno de piedra",
+    'id="valoraciones"',
+    "Lo que dicen en Google",
+    "Las valoraciones se muestran directamente desde Google Maps",
+    "https://www.google.com/maps?q=Fof%C3%B3%20Pizza%2C%20Carrer%20de%20Bonve%C3%AD%2046%2C%20Cornell%C3%A0%20de%20Llobregat&amp;output=embed",
+    'title="Valoraciones reales de Fofó Pizza en Google Maps"',
+    'loading="lazy"',
+]:
+    if marker not in text:
+        fail(f"missing Neapolitan positioning or Google reviews integration: {marker}")
 if "new IntersectionObserver" not in text or "data-filter" not in text:
     fail("original interactions are missing")
 for token in ["--green:#4faa36", "--green-bright:#74ec4a", "--green-dark:#245c32"]:

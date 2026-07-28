@@ -42,6 +42,8 @@ La carta incluye 20 miniaturas circulares que usan temporalmente una única foto
 
 Los filtros dependen de `data-tags` y de `.menu-item[hidden]{display:none}`. Mantener los recuentos provisionales: todas 20, clásicas 8, de la casa 12, vegetarianas 5 y picantes 4.
 
+El 28/07/2026 Alex confirmó que la propuesta central del negocio es la pizza napolitana cocida en horno de piedra y que el cocinero es napolitano. Autorizó actualizar el copy para comunicarlo de forma prioritaria y añadir una sección `#valoraciones` con información cargada directamente desde Google Maps. Mantener esa integración en vivo: no sustituirla por testimonios inventados ni copiar manualmente reseñas sin comprobar su procedencia.
+
 ## Publicación
 
 GitHub Pages publica desde `main` y la raíz `/`. No requiere build, dependencias ni backend.
